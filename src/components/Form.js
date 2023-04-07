@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Form extends React.Component {
   render() {
-    const { formState, onInputChange, onSaveButtonClick } = this.props;
+    const { formState, onInputChange } = this.props;
     const {
       cardName,
       cardDescription,
@@ -13,13 +13,14 @@ class Form extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      hasTrunfo,
+      // hasTrunfo,
       isSaveButtonDisabled,
     } = formState;
     return (
       <form>
         <fieldset>
           <label htmlFor="cardName">
+            Name
             <input
               id="cardName"
               name="cardName"
@@ -30,6 +31,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="cardDescription">
+            Description
             <textarea
               id="cardDescription"
               name="cardDescription"
@@ -41,6 +43,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="cardAttr1">
+            First Quality
             <input
               id="cardAttr1"
               name="cardAttr1"
@@ -51,6 +54,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="cardAttr2">
+            Second Quality
             <input
               id="cardAttr2"
               name="cardAttr2"
@@ -61,6 +65,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="cardAttr3">
+            Thyrdi Quality
             <input
               id="cardAttr3"
               name="cardAttr3"
@@ -71,6 +76,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="cardImage">
+            Enter Image
             <input
               id="cardImage"
               name="cardImage"
@@ -81,6 +87,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="cardRare">
+            Rarity
             <select
               id="cardRare"
               name="cardRare"
@@ -94,10 +101,11 @@ class Form extends React.Component {
             </select>
           </label>
           <label htmlFor="cardTrunfo">
+            Is a Super Trunfo?
             <input
               id="cardTrunfo"
               name="cardTrunfo"
-              type="cardTrunfo"
+              type="checkbox"
               data-testid="trunfo-input"
               checked={ cardTrunfo }
               onChange={ onInputChange }
@@ -109,9 +117,9 @@ class Form extends React.Component {
               name="isSaveButtonDisabled"
               data-testid="save-button"
               disabled={ isSaveButtonDisabled }
-              onClick={ onSaveButtonClick }
+              // onClick={ onSaveButtonClick }
             >
-              Salvar
+              Save
             </button>
           </label>
         </fieldset>
@@ -122,7 +130,7 @@ class Form extends React.Component {
 
 Form.propTypes = {
   onInputChange: PropTypes.func.isRequired,
-  onSaveButtonClick: PropTypes.func.isRequired,
+  // onSaveButtonClick: PropTypes.func.isRequired,
   formState: PropTypes.shape({
     cardName: PropTypes.string,
     cardDescription: PropTypes.string,

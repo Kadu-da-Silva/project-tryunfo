@@ -1,7 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Card extends React.Component {
   render() {
+    const { formState } = this.props;
+    const {
+      cardName,
+      cardDescription,
+      cardImage,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardRare,
+      cardTrunfo,
+    } = formState;
     return (
       <div>
         <h2 data-testid="name-card">{ cardName }</h2>
@@ -20,5 +32,18 @@ class Card extends React.Component {
     );
   }
 }
+
+Card.propTypes = {
+  formState: PropTypes.shape({
+    cardName: PropTypes.string,
+    cardDescription: PropTypes.string,
+    cardAttr1: PropTypes.string,
+    cardAttr2: PropTypes.string,
+    cardAttr3: PropTypes.string,
+    cardImage: PropTypes.string,
+    cardRare: PropTypes.string,
+    cardTrunfo: PropTypes.bool,
+  }).isRequired,
+};
 
 export default Card;
