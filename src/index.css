@@ -1,19 +1,124 @@
+:root {
+  --background-dark: #505050;
+  --background-darkII: rgba(255,255,255,0.1);
+  --background-trunfo: rgb(27, 171, 207);
+  --font-color: white;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-dark);
+  color: var(--font-color);
+  font-family: 'Alkatra', cursive;
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-.fieldset {
+form{
+  background-color: var(--background-darkII);
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  padding: 10px;
+}
+
+fieldset {
+  align-items: center;
+  background-color: var(--background-darkII);
+  display: flex;
+  flex-direction: column;
+  width: 0px;
+}
+
+#cardName {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+}
+
+#cardName:focus {
+  background-color: var(--background-trunfo);
+  color: var(--font-color);
+}
+
+#cardDescription {
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 100px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Sans Unicode',sans-serif;
+  margin: 5px;
+  resize: none;
+  width: 180px;
+}
+
+#cardDescription:focus {
+  background-color: var(--background-trunfo);
+  color: var(--font-color);
+}
+
+#cardAttr1,#cardAttr2,#cardAttr3 {
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+  width: 50px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: 10px;
+  margin: 0;
+  padding: 10px;
+}
+
+#cardImage{
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+}
+
+#cardImage:focus {
+  background-color: var(--background-trunfo);
+  color: var(--font-color);
+}
+
+#cardRare {
+  border: 1px solid white;
+  border-radius: 10px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Sans Unicode',sans-serif;
+  padding: 5px;
+  margin: 5px;
+}
+
+#cardRare:focus {
+  background-color: var(--background-trunfo);
+  color: var(--font-color);
+}
+
+/* Estilo do Card.js */
+
+h2 {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+p {
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 100px;
+  width: 200px;
+}
+
+img {
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+span {
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
 }

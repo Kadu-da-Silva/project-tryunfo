@@ -74,7 +74,8 @@ class App extends React.Component {
 
     return (
       <div>
-        <h1>Tryunfo</h1>
+        <h1>Super Trunfo</h1>
+        <h2>Crie seu baralho</h2>
         <Form
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ this.onSaveButtonClick }

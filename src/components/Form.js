@@ -13,15 +13,15 @@ class Form extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
     } = formState;
     return (
-      <form>
+      <form className="form">
         <fieldset className="fieldset">
-          <label htmlFor="cardName">
-            Name
+          <label htmlFor="cardName" className="labelName">
             <input
+              placeholder="Nome do Card"
               id="cardName"
               name="cardName"
               type="text"
@@ -30,9 +30,9 @@ class Form extends React.Component {
               onChange={ onInputChange }
             />
           </label>
-          <label htmlFor="cardDescription">
-            Description
+          <label htmlFor="cardDescription" className="labelTextarea">
             <textarea
+              placeholder="Descrição da Carta"
               id="cardDescription"
               name="cardDescription"
               cols="30"
@@ -42,8 +42,8 @@ class Form extends React.Component {
               onChange={ onInputChange }
             />
           </label>
-          <label htmlFor="cardAttr1">
-            First Quality
+          <label htmlFor="cardAttr1" className="labelAttr">
+            Atributo 1
             <input
               id="cardAttr1"
               name="cardAttr1"
@@ -54,8 +54,8 @@ class Form extends React.Component {
               onChange={ onInputChange }
             />
           </label>
-          <label htmlFor="cardAttr2">
-            Second Quality
+          <label htmlFor="cardAttr2" className="labelAttr">
+            Atributo 2
             <input
               id="cardAttr2"
               name="cardAttr2"
@@ -66,8 +66,8 @@ class Form extends React.Component {
               onChange={ onInputChange }
             />
           </label>
-          <label htmlFor="cardAttr3">
-            Thyrdi Quality
+          <label htmlFor="cardAttr3" className="labelAttr">
+            Atributo 3
             <input
               id="cardAttr3"
               name="cardAttr3"
@@ -78,9 +78,9 @@ class Form extends React.Component {
               onChange={ onInputChange }
             />
           </label>
-          <label htmlFor="cardImage">
-            Enter Image
+          <label htmlFor="cardImage" className="labelImage">
             <input
+              placeholder="Digite o caminho da imagem"
               id="cardImage"
               name="cardImage"
               type="text"
@@ -89,8 +89,8 @@ class Form extends React.Component {
               onChange={ onInputChange }
             />
           </label>
-          <label htmlFor="cardRare">
-            Rarity
+          <label htmlFor="cardRare" className="labelRare">
+            Raridade
             <select
               id="cardRare"
               name="cardRare"
@@ -103,8 +103,7 @@ class Form extends React.Component {
               <option value="muito raro" key="muito raro">muito raro</option>
             </select>
           </label>
-          <label htmlFor="cardTrunfo">
-            Is a Super Trunfo?
+          <label htmlFor="cardTrunfo" className="labelTrunfo">
             <input
               id="cardTrunfo"
               name="cardTrunfo"
@@ -113,8 +112,9 @@ class Form extends React.Component {
               checked={ cardTrunfo }
               onChange={ onInputChange }
             />
+            Super Trunfo
           </label>
-          <label htmlFor="isSaveButtonDisabled">
+          <label htmlFor="isSaveButtonDisabled" className="labelButton">
             <button
               id="isSaveButtonDisabled"
               name="isSaveButtonDisabled"
@@ -124,6 +124,8 @@ class Form extends React.Component {
             >
               Save
             </button>
+            {hasTrunfo === true
+              ? <span>Você já tem um Super Trunfo em seu baralho</span> : undefined}
           </label>
         </fieldset>
       </form>
