@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 class Form extends React.Component {
   render() {
-    const { formState, onInputChange, onSaveButtonClick } = this.props;
     const {
       cardName,
       cardDescription,
@@ -15,7 +14,9 @@ class Form extends React.Component {
       cardTrunfo,
       hasTrunfo,
       isSaveButtonDisabled,
-    } = formState;
+      onInputChange,
+      onSaveButtonClick,
+    } = this.props;
     return (
       <form className="form">
         <fieldset className="fieldset">
@@ -140,18 +141,16 @@ class Form extends React.Component {
 Form.propTypes = {
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
-  formState: PropTypes.shape({
-    cardName: PropTypes.string,
-    cardDescription: PropTypes.string,
-    cardAttr1: PropTypes.number,
-    cardAttr2: PropTypes.number,
-    cardAttr3: PropTypes.number,
-    cardImage: PropTypes.string,
-    cardRare: PropTypes.string,
-    cardTrunfo: PropTypes.bool,
-    hasTrunfo: PropTypes.bool,
-    isSaveButtonDisabled: PropTypes.bool,
-  }).isRequired,
+  cardName: PropTypes.string.isRequired,
+  cardDescription: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.number.isRequired,
+  cardAttr2: PropTypes.number.isRequired,
+  cardAttr3: PropTypes.number.isRequired,
+  cardImage: PropTypes.string.isRequired,
+  cardRare: PropTypes.string.isRequired,
+  cardTrunfo: PropTypes.bool.isRequired,
+  hasTrunfo: PropTypes.bool.isRequired,
+  isSaveButtonDisabled: PropTypes.bool.isRequired,
 };
 
 export default Form;
