@@ -5,19 +5,6 @@ import handleValue from './utils/handleValue';
 import validateNumber from './utils/validateNumber';
 import validateText from './utils/validateText';
 
-const INITIAL_STATE = {
-  cardName: '',
-  cardDescription: '',
-  cardAttr1: 0,
-  cardAttr2: 0,
-  cardAttr3: 0,
-  cardImage: '',
-  cardRare: '',
-  cardTrunfo: false,
-  hasTrunfo: false,
-  isSaveButtonDisabled: true,
-};
-
 class App extends React.Component {
   constructor() {
     super();
@@ -26,7 +13,18 @@ class App extends React.Component {
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.validateForm = this.validateForm.bind(this);
 
-    this.state = INITIAL_STATE;
+    this.state = {
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardImage: '',
+      cardRare: '',
+      cardTrunfo: false,
+      hasTrunfo: false,
+      isSaveButtonDisabled: true,
+    };
   }
 
   onInputChange({ target }) {
@@ -34,14 +32,46 @@ class App extends React.Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const newValue = handleValue(target.type, value);
 
-    this.setState({
+    // Cria um novo objeto com os valores do formulário
+    const formData = {
+      ...this.state,
       [name]: newValue,
-    }, this.validateForm);
+    };
+
+    console.log(formData);
+
+    // Atualiza o estado com o novo objeto e valida o formulário
+    this.setState(formData, this.validateForm);
   }
 
-  onSaveButtonClick = () => {
-    // quando clica no botao
-    this.setState(INITIAL_STATE);
+  onSaveButtonClick = (event) => {
+    event.preventDefault();
+    const { cardTrunfo } = this.state;
+
+    if (cardTrunfo === true) {
+      this.setState({
+        cardName: '',
+        cardDescription: '',
+        cardAttr1: 0,
+        cardAttr2: 0,
+        cardAttr3: 0,
+        cardImage: '',
+        cardRare: '',
+        hasTrunfo: true,
+        isSaveButtonDisabled: true,
+      });
+    } else {
+      this.setState({
+        cardName: '',
+        cardDescription: '',
+        cardAttr1: 0,
+        cardAttr2: 0,
+        cardAttr3: 0,
+        cardImage: '',
+        cardRare: '',
+        isSaveButtonDisabled: true,
+      });
+    }
   };
 
   validateForm() {
@@ -68,10 +98,6 @@ class App extends React.Component {
   }
 
   render() {
-    // Pro Lint parar de encher o saco
-    const { isSaveButtonDisabled } = this.state;
-    console.log(isSaveButtonDisabled);
-
     return (
       <div>
         <h1>Super Trunfo</h1>
