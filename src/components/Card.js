@@ -37,9 +37,9 @@ Card.propTypes = {
   formState: PropTypes.shape({
     cardName: PropTypes.string,
     cardDescription: PropTypes.string,
-    cardAttr1: PropTypes.string,
-    cardAttr2: PropTypes.string,
-    cardAttr3: PropTypes.string,
+    cardAttr1: PropTypes.number,
+    cardAttr2: PropTypes.number,
+    cardAttr3: PropTypes.number,
     cardImage: PropTypes.string,
     cardRare: PropTypes.string,
     cardTrunfo: PropTypes.bool,

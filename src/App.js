@@ -1,13 +1,16 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import handleValue from './utils/handleValue';
+import validateNumber from './utils/validateNumber';
+import validateText from './utils/validateText';
 
 const INITIAL_STATE = {
   cardName: '',
   cardDescription: '',
-  cardAttr1: '',
-  cardAttr2: '',
-  cardAttr3: '',
+  cardAttr1: 0,
+  cardAttr2: 0,
+  cardAttr3: 0,
   cardImage: '',
   cardRare: '',
   cardTrunfo: false,
@@ -20,7 +23,8 @@ class App extends React.Component {
     super();
 
     this.onInputChange = this.onInputChange.bind(this);
-    // this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
+    this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
+    this.validateForm = this.validateForm.bind(this);
 
     this.state = INITIAL_STATE;
   }
@@ -28,17 +32,52 @@ class App extends React.Component {
   onInputChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
+    const newValue = handleValue(target.type, value);
 
     this.setState({
-      [name]: value,
-    });
+      [name]: newValue,
+    }, this.validateForm);
+  }
+
+  onSaveButtonClick = () => {
+    // quando clica no botao
+    console.log('hey!');
+  };
+
+  validateForm() {
+    const {
+      cardName,
+      cardDescription,
+      cardImage,
+      cardRare,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+    } = this.state;
+    const inputText = validateText(cardName, cardDescription, cardImage, cardRare);
+    const inputNumber = validateNumber(cardAttr1, cardAttr2, cardAttr3);
+    if (inputText && inputNumber) {
+      this.setState({
+        // eslint-disable-next-line react/no-unused-state
+        isSaveButtonDisabled: false,
+      });
+    } else {
+      this.setState({
+        // eslint-disable-next-line react/no-unused-state
+        isSaveButtonDisabled: true,
+      });
+    }
   }
 
   render() {
     return (
       <div>
         <h1>Tryunfo</h1>
-        <Form onInputChange={ this.onInputChange } formState={ this.state } />
+        <Form
+          onInputChange={ this.onInputChange }
+          onSaveButtonClick={ this.onSaveButtonClick }
+          formState={ this.state }
+        />
         <Card formState={ this.state } />
       </div>
     );

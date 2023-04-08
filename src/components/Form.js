@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Form extends React.Component {
   render() {
-    const { formState, onInputChange } = this.props;
+    const { formState, onInputChange, onSaveButtonClick } = this.props;
     const {
       cardName,
       cardDescription,
@@ -18,7 +18,7 @@ class Form extends React.Component {
     } = formState;
     return (
       <form>
-        <fieldset>
+        <fieldset className="fieldset">
           <label htmlFor="cardName">
             Name
             <input
@@ -48,6 +48,7 @@ class Form extends React.Component {
               id="cardAttr1"
               name="cardAttr1"
               type="number"
+              max="90"
               data-testid="attr1-input"
               value={ cardAttr1 }
               onChange={ onInputChange }
@@ -59,6 +60,7 @@ class Form extends React.Component {
               id="cardAttr2"
               name="cardAttr2"
               type="number"
+              max="90"
               data-testid="attr2-input"
               value={ cardAttr2 }
               onChange={ onInputChange }
@@ -70,6 +72,7 @@ class Form extends React.Component {
               id="cardAttr3"
               name="cardAttr3"
               type="number"
+              max="90"
               data-testid="attr3-input"
               value={ cardAttr3 }
               onChange={ onInputChange }
@@ -95,6 +98,7 @@ class Form extends React.Component {
               value={ cardRare }
               onChange={ onInputChange }
             >
+              <option value="" key=""> </option>
               <option value="normal" key="normal">normal</option>
               <option value="raro" key="raro">raro</option>
               <option value="muito raro" key="muito raro">muito raro</option>
@@ -117,7 +121,7 @@ class Form extends React.Component {
               name="isSaveButtonDisabled"
               data-testid="save-button"
               disabled={ isSaveButtonDisabled }
-              // onClick={ onSaveButtonClick }
+              onClick={ onSaveButtonClick }
             >
               Save
             </button>
@@ -130,13 +134,13 @@ class Form extends React.Component {
 
 Form.propTypes = {
   onInputChange: PropTypes.func.isRequired,
-  // onSaveButtonClick: PropTypes.func.isRequired,
+  onSaveButtonClick: PropTypes.func.isRequired,
   formState: PropTypes.shape({
     cardName: PropTypes.string,
     cardDescription: PropTypes.string,
-    cardAttr1: PropTypes.string,
-    cardAttr2: PropTypes.string,
-    cardAttr3: PropTypes.string,
+    cardAttr1: PropTypes.number,
+    cardAttr2: PropTypes.number,
+    cardAttr3: PropTypes.number,
     cardImage: PropTypes.string,
     cardRare: PropTypes.string,
     cardTrunfo: PropTypes.bool,
