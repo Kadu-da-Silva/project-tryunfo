@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 class Card extends React.Component {
   render() {
-    const { formState } = this.props;
     const {
       cardName,
       cardDescription,
@@ -13,7 +12,7 @@ class Card extends React.Component {
       cardAttr3,
       cardRare,
       cardTrunfo,
-    } = formState;
+    } = this.props;
     return (
       <form>
         <fieldset>
@@ -39,16 +38,14 @@ class Card extends React.Component {
 }
 
 Card.propTypes = {
-  formState: PropTypes.shape({
-    cardName: PropTypes.string,
-    cardDescription: PropTypes.string,
-    cardAttr1: PropTypes.number,
-    cardAttr2: PropTypes.number,
-    cardAttr3: PropTypes.number,
-    cardImage: PropTypes.string,
-    cardRare: PropTypes.string,
-    cardTrunfo: PropTypes.bool,
-  }).isRequired,
+  cardName: PropTypes.string.isRequired,
+  cardDescription: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.number.isRequired,
+  cardAttr2: PropTypes.number.isRequired,
+  cardAttr3: PropTypes.number.isRequired,
+  cardImage: PropTypes.string.isRequired,
+  cardRare: PropTypes.string.isRequired,
+  cardTrunfo: PropTypes.bool.isRequired,
 };
 
 export default Card;
