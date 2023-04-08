@@ -58,18 +58,18 @@ class App extends React.Component {
     const inputNumber = validateNumber(cardAttr1, cardAttr2, cardAttr3);
     if (inputText && inputNumber) {
       this.setState({
-        // eslint-disable-next-line react/no-unused-state
         isSaveButtonDisabled: false,
       });
     } else {
       this.setState({
-        // eslint-disable-next-line react/no-unused-state
         isSaveButtonDisabled: true,
       });
     }
   }
 
   render() {
+    const { isSaveButtonDisabled } = this.state;
+    console.log(isSaveButtonDisabled);
     return (
       <div>
         <h1>Tryunfo</h1>
