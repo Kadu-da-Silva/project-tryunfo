@@ -41,7 +41,7 @@ class App extends React.Component {
 
   onSaveButtonClick = () => {
     // quando clica no botao
-    console.log('hey!');
+    this.setState(INITIAL_STATE);
   };
 
   validateForm() {
@@ -68,8 +68,10 @@ class App extends React.Component {
   }
 
   render() {
+    // Pro Lint parar de encher o saco
     const { isSaveButtonDisabled } = this.state;
     console.log(isSaveButtonDisabled);
+
     return (
       <div>
         <h1>Tryunfo</h1>
