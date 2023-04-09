@@ -1,129 +1,186 @@
 :root {
-  --background-dark: #505050;
-  --background-darkII: rgba(255,255,255,0.1);
-  --background-trunfo: rgb(27, 171, 207);
-  --font-color: white;
+  --color-1: rgb(0,41,40);
+  --color-2: rgb(0,124,96);
+  --color-3: rgb(0,206,146);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@100&display=swap');
 
 body {
-  background-color: var(--background-dark);
+  background-color: var(--color-1);
   color: var(--font-color);
   font-family: 'Alkatra', cursive;
   text-align: center;
 }
 
-form{
-  background-color: var(--background-darkII);
-  display: flex;
-  justify-content: center;
-  padding: 10px;
+h2 {
+  color: var(--color-3);
 }
 
-fieldset {
-  align-items: center;
-  background-color: var(--background-darkII);
+.sectionMain {
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  width: 100%;
+}
+
+div {
+  flex-grow: 1;
+  margin: 10px;
+  width: 100%;
+}
+
+/* Form Styles */
+.sectionForm{
   display: flex;
   flex-direction: column;
-  width: 0px;
 }
 
-#cardName {
-  border: 1px solid white;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 5px;
+/* Card Styles */
+.mainCard {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
-#cardName:focus {
-  background-color: var(--background-trunfo);
-  color: var(--font-color);
-}
-
-#cardDescription {
-  border: 1px solid white;
-  border-radius: 10px;
-  height: 100px;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Sans Unicode',sans-serif;
-  margin: 5px;
-  resize: none;
-  width: 180px;
-}
-
-#cardDescription:focus {
-  background-color: var(--background-trunfo);
-  color: var(--font-color);
-}
-
-#cardAttr1,#cardAttr2,#cardAttr3 {
-  border: 1px solid white;
+.sectionCard {
+  background-color: white;
   border-radius: 5px;
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1);
+  height: 380px;
+  margin: 10px;
+  width: 250px;
+}
+
+.divCard {
+  align-items: center;
+  background-color: var(--color-2);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 370px;
   margin: 5px;
-  padding: 10px;
-  width: 50px;
+  width: 240px;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  height: 10px;
-  margin: 0;
-  padding: 10px;
+#h3Card {
+  background-color: var(--color-1);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  color: white;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  margin: 6px;
+  margin-bottom: 0;
+  padding-left: 8px;
+  text-align: left;
+  width: 220px;
 }
 
-#cardImage{
-  border: 1px solid white;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 5px;
-}
 
-#cardImage:focus {
-  background-color: var(--background-trunfo);
-  color: var(--font-color);
-}
-
-#cardRare {
-  border: 1px solid white;
-  border-radius: 10px;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Sans Unicode',sans-serif;
-  padding: 5px;
-  margin: 5px;
-}
-
-#cardRare:focus {
-  background-color: var(--background-trunfo);
-  color: var(--font-color);
-}
-
-/* Estilo do Card.js */
-
-h2 {
-  border: 1px solid white;
-  border-radius: 10px;
-  padding: 5px;
-}
-
-p {
-  border: 1px solid white;
-  border-radius: 10px;
-  height: 100px;
-  width: 200px;
-}
-
-img {
-  border: 1px solid white;
-  border-radius: 10px;
+#imgCard{
+  min-height: 168px;
+  max-height: 168px;
+  margin: 10px;
+  margin-bottom: 0;
+  margin-top: 0;
+  min-width: 180px;
   max-width: 180px;
 }
 
-span {
-  border: 1px solid white;
-  border-radius: 5px;
-  margin: 5px;
-  padding: 5px;
+#pCard {
+  color: white;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  font-size: 10pt;
+  min-height: 95px;
+  max-height: 95px;
+  margin: 10px;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-align: justify;
 }
 
-#divAtr {
-  margin: 5px;
+
+#spanCard {
+  color: white;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  margin-left: 10px;
+  text-decoration: underline;
 }
+
+#spanDeAtkEDef {
+  background-color: var(--color-2);
+  margin: 0;
+  padding-right: 10px;
+  text-align: right;
+  width: 220px;
+}
+
+#nivelCard{
+  display: flex;
+  height: 20px;
+  margin: 0;
+  padding-right: 10px;
+  justify-content: right;
+  width: 220px;
+}
+
+#spanCardRare {
+  background-color: var(--color-1);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  margin-bottom: 5px;
+  margin-top: 0;
+  text-transform: uppercase;
+  width: 230px;
+}
+
+#trunfo {
+  background-color: var(--color-3);
+  border: 3px outset white;
+  border-radius: 100px;
+  color: white;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  margin-right: 160px;
+  margin-top: 30px;
+  position: absolute;
+  width: 60px;
+}
+/* All Cards */
+.allCards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#cardName {
+}
+
+#cardName:focus {
+}
+
+#cardDescription {
+}
+
+#cardDescription:focus {
+}
+
+#cardAttr1,#cardAttr2,#cardAttr3 {
+}
+
+#cardImage{
+}
+
+#cardImage:focus {
+}
+
+#cardRare {
+}
+
+#cardRare:focus {
+}
+
