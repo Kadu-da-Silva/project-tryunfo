@@ -1,8 +1,14 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+
+// todo: válida os diferentes campos
 import handleValue from './utils/handleValue';
+
+// todo: válida os inputs do tipo número
 import validateNumber from './utils/validateNumber';
+
+// todo: válida os inputs do tipo texto
 import validateText from './utils/validateText';
 
 class App extends React.Component {
@@ -12,6 +18,7 @@ class App extends React.Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.validateForm = this.validateForm.bind(this);
+    this.onDelete = this.onDelete.bind(this);
 
     this.state = {
       cardName: '',
@@ -28,6 +35,7 @@ class App extends React.Component {
     };
   }
 
+  //! Function pai de todas: Atualiza os estados e cria o formData (objetão)
   onInputChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -43,6 +51,7 @@ class App extends React.Component {
     this.setState(formData, this.validateForm);
   }
 
+  //! Function salva cards
   onSaveButtonClick = (event) => {
     event.preventDefault();
     const { cardTrunfo, allCards, ...card } = this.state;
@@ -61,7 +70,7 @@ class App extends React.Component {
         cardAttr2: 0,
         cardAttr3: 0,
         cardImage: '',
-        cardRare: '',
+        cardRare: 'normal',
         cardTrunfo: false,
         hasTrunfo: true,
         isSaveButtonDisabled: true,
@@ -80,13 +89,30 @@ class App extends React.Component {
         cardAttr2: 0,
         cardAttr3: 0,
         cardImage: '',
-        cardRare: '',
+        cardRare: 'normal',
         cardTrunfo: false,
         isSaveButtonDisabled: true,
       });
     }
   };
 
+  //! Function deleta cards
+  onDelete = (cardToDelete) => {
+    const { hasTrunfo } = cardToDelete;
+
+    if (hasTrunfo === true) {
+      this.setState((prevState) => ({
+        allCards: prevState.allCards.filter((card) => card !== cardToDelete),
+        hasTrunfo: false,
+      }));
+    } else {
+      this.setState((prevState) => ({
+        allCards: prevState.allCards.filter((card) => card !== cardToDelete),
+      }));
+    }
+  };
+
+  //! Function valida formulario com functions importadas
   validateForm() {
     const {
       cardName,
@@ -153,6 +179,9 @@ class App extends React.Component {
             cardImage={ card.cardImage }
             cardRare={ card.cardRare }
             cardTrunfo={ card.cardTrunfo }
+            // Usando um tratador de evento para que o btn onDelete não recarregue a página
+            onDelete={ () => this.onDelete(card) }
+            card={ card }
           />
         ))}
       </div>
