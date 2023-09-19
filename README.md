@@ -10,7 +10,7 @@ Neste projeto desenvolvi um jogo no estilo Super Trunfo! Ao utilizar essa aplica
 
 ♠️ Jogar com o baralho criado.
 
-### Algumas das habilidades desenvolvidas durante o projeto 🃏
+### Algumas das habilidades desenvolvidas durante o projeto: 🃏
 
 * Ler o estado de um componente e usá-lo para alterar o que exibimos no browser
 * Inicializar um componente, dando a ele um estado pré-definido
@@ -19,4 +19,4 @@ Neste projeto desenvolvi um jogo no estilo Super Trunfo! Ao utilizar essa aplica
 * Criar formulários utilizando sintaxe JSX com as tags: input, textarea, select, form, checkbox
 * Transmitir informações de componentes filhos para componentes pais via callbacks
 
-* ## +1 Projeto desenvolvido na [Trybe](https://www.betrybe.com/)💚
+## +1 Projeto desenvolvido na [Trybe](https://www.betrybe.com/)💚
